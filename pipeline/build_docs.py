@@ -120,7 +120,7 @@ class DocsBuilder:
                 self.doc += '\n\n'
             elif fdata['value'] == 'text':
                 self.doc += '\n'
-                self.doc += 'See the [transcription tables](transcription.md).\n\n'
+                self.doc += 'See the transcription tables as defined in configs.\n\n'
             elif feat == 'title':
                 # retrieve dialects for the titles
                 titles = []

@@ -44,15 +44,15 @@ In this document, the various nodes and their features are described in depth.
 | node type   | description                                                                                                              |   frequency | features                                                                                                                                                                                                                                                                                          |
 |:------------|:-------------------------------------------------------------------------------------------------------------------------|------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | dialect     | dialect of North Eastern Neo-Aramaic                                                                                     |           3 | [dialect](#dialect)                                                                                                                                                                                                                                                                               |
-| text        | transcribed story from a native NENA informant                                                                           |         127 | [speakers](#speakers), [dialect](#dialect), [title](#title), [place](#place), [text_id](#text_id)                                                                                                                                                                                                 |
+| text        | transcribed story from a native NENA informant                                                                           |         127 | [dialect](#dialect), [place](#place), [speakers](#speakers), [text_id](#text_id), [title](#title)                                                                                                                                                                                                 |
 | paragraph   | paragraph segment based on newlines                                                                                      |         351 |                                                                                                                                                                                                                                                                                                   |
 | line        | verse-like section used for reference; corresponds with publications where applicable                                    |        2587 | [line_number](#line_number)                                                                                                                                                                                                                                                                       |
 | sentence    | sentence based on one or more of the following punctuators [.!?]                                                         |       16369 |                                                                                                                                                                                                                                                                                                   |
 | subsentence | part of sentence based on one of the following punctuators: [;,—:]                                                       |       24617 |                                                                                                                                                                                                                                                                                                   |
 | inton       | intonation group of words/letters based on ˈ symbol (superscript |), which marks such boundaries                         |       36594 |                                                                                                                                                                                                                                                                                                   |
 | stress      | stress group of words, marked either by hyphenated segments or standalone words; e.g. 'xa-ga' is 2 words, 1 stress group |       94101 |                                                                                                                                                                                                                                                                                                   |
-| word        | word in NENA or other language segmented by either whitespace or one of [-=]                                             |      120598 | [text](#text), [lite_end](#lite_end), [lang](#lang), [text_nostress](#text_nostress), [fuzzy_end](#fuzzy_end), [timestamp](#timestamp), [speaker](#speaker), [text_end](#text_end), [text_nostress_end](#text_nostress_end), [lite](#lite), [fuzzy](#fuzzy), [full](#full), [full_end](#full_end) |
-| letter      | an individual letter including diacritics recognized by pattern matches against canonical NENA alphabet                  |      541384 | [text](#text), [phonetic_place](#phonetic_place), [text_nostress](#text_nostress), [phonetic_manner](#phonetic_manner), [lite](#lite), [fuzzy](#fuzzy), [full](#full), [phonation](#phonation), [phonetic_class](#phonetic_class)                                                                 |
+| word        | word in NENA or other language segmented by either whitespace or one of [-=]                                             |      120598 | [text](#text), [fuzzy_end](#fuzzy_end), [text_nostress_end](#text_nostress_end), [text_end](#text_end), [timestamp](#timestamp), [lang](#lang), [speaker](#speaker), [lite](#lite), [full](#full), [text_nostress](#text_nostress), [full_end](#full_end), [fuzzy](#fuzzy), [lite_end](#lite_end) |
+| letter      | an individual letter including diacritics recognized by pattern matches against canonical NENA alphabet                  |      541384 | [text](#text), [phonation](#phonation), [phonetic_manner](#phonetic_manner), [lite](#lite), [phonetic_place](#phonetic_place), [phonetic_class](#phonetic_class), [full](#full), [text_nostress](#text_nostress), [fuzzy](#fuzzy)                                                                 |
 
 # Features
 
@@ -325,7 +325,7 @@ utf8 text representation of a letter or word
 | letter      |      541384 |
 
 
-See the [transcription tables](transcription.md).
+See the transcription tables as defined in configs.
 
 [back to node types](#Node-Types)
 <hr>
@@ -341,7 +341,7 @@ utf8 text without stress markers
 | letter      |      541384 |
 
 
-See the [transcription tables](transcription.md).
+See the transcription tables as defined in configs.
 
 [back to node types](#Node-Types)
 <hr>
@@ -357,7 +357,7 @@ full transcription, one-to-one transcription of a letter or word
 | letter      |      541384 |
 
 
-See the [transcription tables](transcription.md).
+See the transcription tables as defined in configs.
 
 [back to node types](#Node-Types)
 <hr>
@@ -373,7 +373,7 @@ lite transcription of a letter or word, without vowel accents
 | letter      |      541384 |
 
 
-See the [transcription tables](transcription.md).
+See the transcription tables as defined in configs.
 
 [back to node types](#Node-Types)
 <hr>
@@ -389,7 +389,7 @@ fuzzy transcription that leaves out most diacritics and maps certain characters 
 | letter      |      541384 |
 
 
-See the [transcription tables](transcription.md).
+See the transcription tables as defined in configs.
 
 [back to node types](#Node-Types)
 <hr>
@@ -404,7 +404,7 @@ space, punctuation, or other stylistic text at the end a letter or word
 | word        |      120598 |
 
 
-See the [transcription tables](transcription.md).
+See the transcription tables as defined in configs.
 
 [back to node types](#Node-Types)
 <hr>
@@ -419,7 +419,7 @@ full transcription of punctuation or other stylistic text at the end of a letter
 | word        |      120586 |
 
 
-See the [transcription tables](transcription.md).
+See the transcription tables as defined in configs.
 
 [back to node types](#Node-Types)
 <hr>
@@ -434,7 +434,7 @@ lite transcription of punctuation or other stylistic text at the end of a letter
 | word        |      120586 |
 
 
-See the [transcription tables](transcription.md).
+See the transcription tables as defined in configs.
 
 [back to node types](#Node-Types)
 <hr>
@@ -449,7 +449,7 @@ fuzzy transcription of punctuation or other stylistic text at the end of a lette
 | word        |      120598 |
 
 
-See the [transcription tables](transcription.md).
+See the transcription tables as defined in configs.
 
 [back to node types](#Node-Types)
 <hr>
@@ -464,7 +464,7 @@ non-stressed transcription of punctuation or other stylistic text at the end of 
 | word        |      120586 |
 
 
-See the [transcription tables](transcription.md).
+See the transcription tables as defined in configs.
 
 [back to node types](#Node-Types)
 <hr>
