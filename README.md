@@ -162,8 +162,8 @@ role in the corpus.
 
 ### Punctuation
 
-Punctuation must conform to the begin / end punctuations in [begin_punct.json](pipeline/configs/begin_punct.json)
-and [end_punct.json](pipeline/configs/end_punct.json). Beginning punctuations
+Punctuation must conform to the begin / end punctuations in [punct_begin.json](pipeline/configs/punct_begin.json)
+and [punct_end.json](pipeline/configs/punct_end.json). Beginning punctuations
 are typically inflectional markup. The main example of this is the `+` found at the 
 beginning of words in Christian Urmi. However, additional beginning punctuations can be 
 added in the configs. Ending punctuations include white spaces, full stops, commas, semi-colons
