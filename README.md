@@ -164,10 +164,13 @@ role in the corpus.
 
 Punctuation must conform to the begin / end punctuations in [punct_begin.json](pipeline/configs/punct_begin.json)
 and [punct_end.json](pipeline/configs/punct_end.json). Beginning punctuations
-are typically inflectional markup. The main example of this is the `+` found at the 
-beginning of words in Christian Urmi. However, additional beginning punctuations can be 
-added in the configs. Ending punctuations include white spaces, full stops, commas, semi-colons
-and more. These items are associated with the ends of words and are usedto delineate words.
+are typically inflectional markup. A dialectical example of this is the `+` found at the 
+beginning of words in Christian Urmi. A more common example would be opening quotation marks,
+which are distinguished from closing with a lack of trailing space. By contrast "+whitespace is
+considered an ending punctuation. Additional beginning punctuations can be added in the configs. 
+
+Ending punctuations include white spaces, full stops, commas, semi-colons and more. 
+These items are associated with the ends of words and are usedto delineate words.
 
 
 ### Span Tags
