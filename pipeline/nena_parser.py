@@ -273,8 +273,8 @@ def NenaLexerParser(configdict):
 
     # define the parser class; NB that tokens depends on 
     # the NenaLexer definitions a run-time;
-    # a shift-reduce debug file is written out to the 
-    # parse_debug as configured in config.json
+    # a shift-reduce debug file can be written out to the 
+    # parse_debug if configured (see commented out below)
     # For more info on the syntax used for these patterns, 
     # see the Yacc docs linked to at the beginning of this file
     class NenaParser(Parser):
@@ -282,7 +282,8 @@ def NenaLexerParser(configdict):
         def __init__(self):
             super().__init__()
         
-        debugfile = configs.config['parse_debug']
+        # comment out to output debug file
+        #debugfile = 'debug_parser.out'
         tokens = NenaLexer.tokens
         
         def error(self, t):

@@ -1,6 +1,5 @@
 {
     "version": "alpha",
-    "parse_debug": "parser.out",
     "tf_config": "pipeline/configs/tf_config.json",
     "search_configs": "pipeline/configs/search_configs",
     "doc_template": "pipeline/configs/doc_template.md",

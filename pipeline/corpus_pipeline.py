@@ -69,6 +69,10 @@ class CorpusPipeline:
                     nena_search compiled from the corpus data
         """
         
+        # create the outdir if needed
+        if not Path(outdir).exists():
+            Path(outdir).mkdir()
+
         # parse the .nena files 
         dialect2data = self.parse_nena(indir)
         

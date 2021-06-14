@@ -10,7 +10,7 @@
 @value=string
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2021-06-14T18:22:27Z
+@dateWritten=2021-06-14T18:34:40Z
 
 716008	Yuwəl Yuḥanna
 Yuwəl Yuḥanna
