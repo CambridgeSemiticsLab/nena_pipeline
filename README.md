@@ -120,7 +120,6 @@ The text block contains the body of the transcribed text. The text must be
 written using valid canonical letters or acceptable foreign character combinations
 and valid punctuation characters.
 
-
 ### Canonical Letters
 
 Canonical letters are all valid character combinations in the entire NENA corpus, regardless of the dialect.
@@ -142,7 +141,7 @@ to ensure only decomposed character combos are evaluated.
 
 Letters in words [marked as foreign](#Foreign-Language-Tag) are considered
 non-canonical and need only match the regular expression pattern defined in
-[markup_tags.json](pipelines/configs/markup_tags.json) under "foreign_letter".
+[markup_tags.json](pipeline/configs/markup_tags.json) under "foreign_letter".
 An example of a foreign letter is the `u` with umlaut in German words.
 
 ### Paragraph Structure
@@ -162,12 +161,15 @@ role in the corpus.
 
 ### Punctuation
 
-Punctuation must conform to the begin / end punctuations in [begin_punct.json](pipeline/configs/begin_punct.json)
-and [end_punct.json](pipeline/configs/end_punct.json). Beginning punctuations
-are typically inflectional markup. The main example of this is the `+` found at the 
-beginning of words in Christian Urmi. However, additional beginning punctuations can be 
-added in the configs. Ending punctuations include white spaces, full stops, commas, semi-colons
-and more. These items are associated with the ends of words and are usedto delineate words.
+Punctuation must conform to the begin / end punctuations in [punct_begin.json](pipeline/configs/punct_begin.json)
+and [punct_end.json](pipeline/configs/punct_end.json). Beginning punctuations
+are typically inflectional markup. A dialectical example of this is the `+` found at the 
+beginning of words in Christian Urmi. A more common example would be opening quotation marks,
+which are distinguished from closing with a lack of trailing space. By contrast "+whitespace is
+considered an ending punctuation. Additional beginning punctuations can be added in the configs. 
+
+Ending punctuations include white spaces, full stops, commas, semi-colons and more. 
+These items are associated with the ends of words and are usedto delineate words.
 
 
 ### Span Tags
@@ -180,9 +182,10 @@ Span tags are defined as open and closed parentheses with space-separated metada
 may occur in any order since the parser evaluates these individually after splitting on spaces.
 
 The metadata allowed in a span tag is defined as one of the following:
-    * line numbers - verse-like reference numbers, from publications if applicable, or made new if not
-    * time stamp - indicates time position of spoken text in an audio file, indicated by at minimum 2 numbers separated with a colon: 0:05
-    * speaker - initials of a speaker which consists of 1+ capital letters (`[A-Z]`); only latin letters should be used; the initials must be defined in the metadata of the document under "speakers", which assigns each initial to a full name. E.g. `GK=Geoffrey Khan`
+
+* line numbers - verse-like reference numbers, from publications if applicable, or made new if not
+* time stamp - indicates time position of spoken text in an audio file, indicated by at minimum 2 numbers separated with a colon: 0:05
+* speaker - initials of a speaker which consists of 1+ capital letters (`[A-Z]`); only latin letters should be used; the initials must be defined in the metadata of the document under "speakers", which assigns each initial to a full name. E.g. `GK=Geoffrey Khan`
 
 Span tags contain a minimum of 1 metadata element and a maximum of 3. The same kind of metadata element should not 
 be used more than once for a single tag as this is considered non-sensical (i.e. only 1 speaker per span, only 1 timestamp, only 1 line number).
@@ -194,15 +197,16 @@ Some examples of span tags in practise:
 ```
 
 Which means: Geoffrey Khan is speaking at 5 seconds in the 
-audio within publication number 2
+audio within (publication) line number 2
 
 or 
 
 ```
 (1 0:00) Here is some text (GK) But here is some more.
 ```
-Which means: Geoffrey Khan starts speaking within a span of 
-text beginning at 0 seconds in publication line 1.
+Which means: someone was speaking within a span of text beginning at
+0 seconds in publication line 1; Geoffrey Khan then began speaking at 
+some point in the middle of that span.
 
 ### Foreign Language Tag
 
