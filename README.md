@@ -107,8 +107,9 @@ The metadata block is ended by two adjacent newline characters.
 Obligatory features are: 
 
 * `dialect` - this the dialect code rather than its pretty name; see [configs](pipeline/configs/dialects.json) for known codes
+* `corpus_id` - this is the unique database id associated with this text
 * `title` - a unique title for this text
-* `speakers` - the speakers in the text, which are identified with an abbreviation (first/last) followed by a = assignment; multiple speakers are comma separated for example:
+* `speakers` - the speakers in the text, which are identified with an abbreviation (first/last) followed by a = assignment; multiple speakers are comma separated. See example text above for example.
 
 Other valuable features include data about the interviewer, place, 
 or transcriber. 
