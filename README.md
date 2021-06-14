@@ -198,15 +198,16 @@ Some examples of span tags in practise:
 ```
 
 Which means: Geoffrey Khan is speaking at 5 seconds in the 
-audio within publication number 2
+audio within (publication) line number 2
 
 or 
 
 ```
 (1 0:00) Here is some text (GK) But here is some more.
 ```
-Which means: Geoffrey Khan starts speaking within a span of 
-text beginning at 0 seconds in publication line 1.
+Which means: someone was speaking within a span of text beginning at
+0 seconds in publication line 1; Geoffrey Khan then began speaking at 
+some point in the middle of that span.
 
 ### Foreign Language Tag
 
