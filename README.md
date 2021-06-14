@@ -120,7 +120,6 @@ The text block contains the body of the transcribed text. The text must be
 written using valid canonical letters or acceptable foreign character combinations
 and valid punctuation characters.
 
-
 ### Canonical Letters
 
 Canonical letters are all valid character combinations in the entire NENA corpus, regardless of the dialect.
