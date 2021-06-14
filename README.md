@@ -183,9 +183,10 @@ Span tags are defined as open and closed parentheses with space-separated metada
 may occur in any order since the parser evaluates these individually after splitting on spaces.
 
 The metadata allowed in a span tag is defined as one of the following:
-    * line numbers - verse-like reference numbers, from publications if applicable, or made new if not
-    * time stamp - indicates time position of spoken text in an audio file, indicated by at minimum 2 numbers separated with a colon: 0:05
-    * speaker - initials of a speaker which consists of 1+ capital letters (`[A-Z]`); only latin letters should be used; the initials must be defined in the metadata of the document under "speakers", which assigns each initial to a full name. E.g. `GK=Geoffrey Khan`
+
+* line numbers - verse-like reference numbers, from publications if applicable, or made new if not
+* time stamp - indicates time position of spoken text in an audio file, indicated by at minimum 2 numbers separated with a colon: 0:05
+* speaker - initials of a speaker which consists of 1+ capital letters (`[A-Z]`); only latin letters should be used; the initials must be defined in the metadata of the document under "speakers", which assigns each initial to a full name. E.g. `GK=Geoffrey Khan`
 
 Span tags contain a minimum of 1 metadata element and a maximum of 3. The same kind of metadata element should not 
 be used more than once for a single tag as this is considered non-sensical (i.e. only 1 speaker per span, only 1 timestamp, only 1 line number).
