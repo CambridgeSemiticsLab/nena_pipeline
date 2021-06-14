@@ -142,7 +142,7 @@ to ensure only decomposed character combos are evaluated.
 
 Letters in words [marked as foreign](#Foreign-Language-Tag) are considered
 non-canonical and need only match the regular expression pattern defined in
-[markup_tags.json](pipelines/configs/markup_tags.json) under "foreign_letter".
+[markup_tags.json](pipeline/configs/markup_tags.json) under "foreign_letter".
 An example of a foreign letter is the `u` with umlaut in German words.
 
 ### Paragraph Structure
