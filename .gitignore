@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 *.tfx
 .DS_Store
+.swp
 
 # C extensions
 *.so
