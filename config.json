@@ -1,0 +1,15 @@
+{
+    "version": "alpha",
+    "parse_debug": "parser.out",
+    "tf_config": "pipeline/configs/tf_config.json",
+    "search_configs": "pipeline/configs/search_configs",
+    "doc_template": "pipeline/configs/doc_template.md",
+    "metadata": "pipeline/configs/metadata.json",
+    "alphabet": "pipeline/configs/alphabet.json",
+    "punct_begin": "pipeline/configs/punct_begin.json",
+    "punct_end": "pipeline/configs/punct_end.json",
+    "transcriptions": "pipeline/configs/transcriptions.json",
+    "dialects": "pipeline/configs/dialects.json",
+    "foreign_langs": "pipeline/configs/foreign_languages.json",
+    "markup_tags": "pipeline/configs/markup_tags.json"
+}

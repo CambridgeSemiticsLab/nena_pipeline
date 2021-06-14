@@ -1,0 +1,635 @@
+Grammar:
+
+Rule 0     S' -> nena
+Rule 1     nena -> attributes NEWLINES text_block
+Rule 2     attributes -> ATTRIBUTE
+Rule 3     attributes -> NEWLINE ATTRIBUTE
+Rule 4     attributes -> attributes NEWLINE ATTRIBUTE
+Rule 5     text_block -> paragraph
+Rule 6     text_block -> text_block NEWLINES paragraph
+Rule 7     paragraph -> element
+Rule 8     paragraph -> paragraph element
+Rule 9     element -> SPAN_TAG
+Rule 10    element -> word
+Rule 11    word -> beginnings letters NEWLINE endings
+Rule 12    word -> beginnings letters NEWLINE
+Rule 13    word -> letters NEWLINE endings
+Rule 14    word -> letters NEWLINE
+Rule 15    word -> letters endings
+Rule 16    word -> beginnings letters endings
+Rule 17    beginnings -> LANG_START
+Rule 18    beginnings -> PUNCT_BEGIN
+Rule 19    beginnings -> LANG_START beginnings
+Rule 20    beginnings -> PUNCT_BEGIN beginnings
+Rule 21    endings -> LANG_END
+Rule 22    endings -> PUNCT_END
+Rule 23    endings -> endings LANG_END
+Rule 24    endings -> endings PUNCT_END
+Rule 25    endings -> endings NEWLINE
+Rule 26    letters -> FOREIGN_LETTER
+Rule 27    letters -> LETTER
+Rule 28    letters -> FOREIGN_LETTER letters
+Rule 29    letters -> LETTER letters
+
+Terminals, with rules where they appear:
+
+ATTRIBUTE            : 2 3 4
+FOREIGN_LETTER       : 26 28
+LANG_END             : 21 23
+LANG_START           : 17 19
+LETTER               : 27 29
+NEWLINE              : 3 4 11 12 13 14 25
+NEWLINES             : 1 6
+PUNCT_BEGIN          : 18 20
+PUNCT_END            : 22 24
+SPAN_TAG             : 9
+error                : 
+
+Nonterminals, with rules where they appear:
+
+attributes           : 1 4
+beginnings           : 11 12 16 19 20
+element              : 7 8
+endings              : 11 13 15 16 23 24 25
+letters              : 11 12 13 14 15 16 28 29
+nena                 : 0
+paragraph            : 5 6 8
+text_block           : 1 6
+word                 : 10
+
+
+state 0
+
+    (0) S' -> . nena
+    (1) nena -> . attributes NEWLINES text_block
+    (2) attributes -> . ATTRIBUTE
+    (3) attributes -> . NEWLINE ATTRIBUTE
+    (4) attributes -> . attributes NEWLINE ATTRIBUTE
+    ATTRIBUTE       shift and go to state 3
+    NEWLINE         shift and go to state 4
+
+    nena                           shift and go to state 1
+    attributes                     shift and go to state 2
+
+state 1
+
+    (0) S' -> nena .
+
+
+state 2
+
+    (1) nena -> attributes . NEWLINES text_block
+    (4) attributes -> attributes . NEWLINE ATTRIBUTE
+    NEWLINES        shift and go to state 5
+    NEWLINE         shift and go to state 6
+
+
+state 3
+
+    (2) attributes -> ATTRIBUTE .
+    NEWLINES        reduce using rule 2 (attributes -> ATTRIBUTE .)
+    NEWLINE         reduce using rule 2 (attributes -> ATTRIBUTE .)
+
+
+state 4
+
+    (3) attributes -> NEWLINE . ATTRIBUTE
+    ATTRIBUTE       shift and go to state 7
+
+
+state 5
+
+    (1) nena -> attributes NEWLINES . text_block
+    (5) text_block -> . paragraph
+    (6) text_block -> . text_block NEWLINES paragraph
+    (7) paragraph -> . element
+    (8) paragraph -> . paragraph element
+    (9) element -> . SPAN_TAG
+    (10) element -> . word
+    (11) word -> . beginnings letters NEWLINE endings
+    (12) word -> . beginnings letters NEWLINE
+    (13) word -> . letters NEWLINE endings
+    (14) word -> . letters NEWLINE
+    (15) word -> . letters endings
+    (16) word -> . beginnings letters endings
+    (17) beginnings -> . LANG_START
+    (18) beginnings -> . PUNCT_BEGIN
+    (19) beginnings -> . LANG_START beginnings
+    (20) beginnings -> . PUNCT_BEGIN beginnings
+    (26) letters -> . FOREIGN_LETTER
+    (27) letters -> . LETTER
+    (28) letters -> . FOREIGN_LETTER letters
+    (29) letters -> . LETTER letters
+    SPAN_TAG        shift and go to state 11
+    LANG_START      shift and go to state 15
+    PUNCT_BEGIN     shift and go to state 16
+    FOREIGN_LETTER  shift and go to state 17
+    LETTER          shift and go to state 18
+
+    text_block                     shift and go to state 8
+    paragraph                      shift and go to state 9
+    element                        shift and go to state 10
+    word                           shift and go to state 12
+    beginnings                     shift and go to state 13
+    letters                        shift and go to state 14
+
+state 6
+
+    (4) attributes -> attributes NEWLINE . ATTRIBUTE
+    ATTRIBUTE       shift and go to state 19
+
+
+state 7
+
+    (3) attributes -> NEWLINE ATTRIBUTE .
+    NEWLINES        reduce using rule 3 (attributes -> NEWLINE ATTRIBUTE .)
+    NEWLINE         reduce using rule 3 (attributes -> NEWLINE ATTRIBUTE .)
+
+
+state 8
+
+    (1) nena -> attributes NEWLINES text_block .
+    (6) text_block -> text_block . NEWLINES paragraph
+    $end            reduce using rule 1 (nena -> attributes NEWLINES text_block .)
+    NEWLINES        shift and go to state 20
+
+
+state 9
+
+    (5) text_block -> paragraph .
+    (8) paragraph -> paragraph . element
+    (9) element -> . SPAN_TAG
+    (10) element -> . word
+    (11) word -> . beginnings letters NEWLINE endings
+    (12) word -> . beginnings letters NEWLINE
+    (13) word -> . letters NEWLINE endings
+    (14) word -> . letters NEWLINE
+    (15) word -> . letters endings
+    (16) word -> . beginnings letters endings
+    (17) beginnings -> . LANG_START
+    (18) beginnings -> . PUNCT_BEGIN
+    (19) beginnings -> . LANG_START beginnings
+    (20) beginnings -> . PUNCT_BEGIN beginnings
+    (26) letters -> . FOREIGN_LETTER
+    (27) letters -> . LETTER
+    (28) letters -> . FOREIGN_LETTER letters
+    (29) letters -> . LETTER letters
+    NEWLINES        reduce using rule 5 (text_block -> paragraph .)
+    $end            reduce using rule 5 (text_block -> paragraph .)
+    SPAN_TAG        shift and go to state 11
+    LANG_START      shift and go to state 15
+    PUNCT_BEGIN     shift and go to state 16
+    FOREIGN_LETTER  shift and go to state 17
+    LETTER          shift and go to state 18
+
+    element                        shift and go to state 21
+    word                           shift and go to state 12
+    beginnings                     shift and go to state 13
+    letters                        shift and go to state 14
+
+state 10
+
+    (7) paragraph -> element .
+    SPAN_TAG        reduce using rule 7 (paragraph -> element .)
+    LANG_START      reduce using rule 7 (paragraph -> element .)
+    PUNCT_BEGIN     reduce using rule 7 (paragraph -> element .)
+    FOREIGN_LETTER  reduce using rule 7 (paragraph -> element .)
+    LETTER          reduce using rule 7 (paragraph -> element .)
+    NEWLINES        reduce using rule 7 (paragraph -> element .)
+    $end            reduce using rule 7 (paragraph -> element .)
+
+
+state 11
+
+    (9) element -> SPAN_TAG .
+    SPAN_TAG        reduce using rule 9 (element -> SPAN_TAG .)
+    LANG_START      reduce using rule 9 (element -> SPAN_TAG .)
+    PUNCT_BEGIN     reduce using rule 9 (element -> SPAN_TAG .)
+    FOREIGN_LETTER  reduce using rule 9 (element -> SPAN_TAG .)
+    LETTER          reduce using rule 9 (element -> SPAN_TAG .)
+    NEWLINES        reduce using rule 9 (element -> SPAN_TAG .)
+    $end            reduce using rule 9 (element -> SPAN_TAG .)
+
+
+state 12
+
+    (10) element -> word .
+    SPAN_TAG        reduce using rule 10 (element -> word .)
+    LANG_START      reduce using rule 10 (element -> word .)
+    PUNCT_BEGIN     reduce using rule 10 (element -> word .)
+    FOREIGN_LETTER  reduce using rule 10 (element -> word .)
+    LETTER          reduce using rule 10 (element -> word .)
+    NEWLINES        reduce using rule 10 (element -> word .)
+    $end            reduce using rule 10 (element -> word .)
+
+
+state 13
+
+    (11) word -> beginnings . letters NEWLINE endings
+    (12) word -> beginnings . letters NEWLINE
+    (16) word -> beginnings . letters endings
+    (26) letters -> . FOREIGN_LETTER
+    (27) letters -> . LETTER
+    (28) letters -> . FOREIGN_LETTER letters
+    (29) letters -> . LETTER letters
+    FOREIGN_LETTER  shift and go to state 17
+    LETTER          shift and go to state 18
+
+    letters                        shift and go to state 22
+
+state 14
+
+    (13) word -> letters . NEWLINE endings
+    (14) word -> letters . NEWLINE
+    (15) word -> letters . endings
+    (21) endings -> . LANG_END
+    (22) endings -> . PUNCT_END
+    (23) endings -> . endings LANG_END
+    (24) endings -> . endings PUNCT_END
+    (25) endings -> . endings NEWLINE
+    NEWLINE         shift and go to state 23
+    LANG_END        shift and go to state 25
+    PUNCT_END       shift and go to state 26
+
+    endings                        shift and go to state 24
+
+state 15
+
+    (17) beginnings -> LANG_START .
+    (19) beginnings -> LANG_START . beginnings
+    (17) beginnings -> . LANG_START
+    (18) beginnings -> . PUNCT_BEGIN
+    (19) beginnings -> . LANG_START beginnings
+    (20) beginnings -> . PUNCT_BEGIN beginnings
+    FOREIGN_LETTER  reduce using rule 17 (beginnings -> LANG_START .)
+    LETTER          reduce using rule 17 (beginnings -> LANG_START .)
+    LANG_START      shift and go to state 15
+    PUNCT_BEGIN     shift and go to state 16
+
+    beginnings                     shift and go to state 27
+
+state 16
+
+    (18) beginnings -> PUNCT_BEGIN .
+    (20) beginnings -> PUNCT_BEGIN . beginnings
+    (17) beginnings -> . LANG_START
+    (18) beginnings -> . PUNCT_BEGIN
+    (19) beginnings -> . LANG_START beginnings
+    (20) beginnings -> . PUNCT_BEGIN beginnings
+    FOREIGN_LETTER  reduce using rule 18 (beginnings -> PUNCT_BEGIN .)
+    LETTER          reduce using rule 18 (beginnings -> PUNCT_BEGIN .)
+    LANG_START      shift and go to state 15
+    PUNCT_BEGIN     shift and go to state 16
+
+    beginnings                     shift and go to state 28
+
+state 17
+
+    (26) letters -> FOREIGN_LETTER .
+    (28) letters -> FOREIGN_LETTER . letters
+    (26) letters -> . FOREIGN_LETTER
+    (27) letters -> . LETTER
+    (28) letters -> . FOREIGN_LETTER letters
+    (29) letters -> . LETTER letters
+    NEWLINE         reduce using rule 26 (letters -> FOREIGN_LETTER .)
+    LANG_END        reduce using rule 26 (letters -> FOREIGN_LETTER .)
+    PUNCT_END       reduce using rule 26 (letters -> FOREIGN_LETTER .)
+    FOREIGN_LETTER  shift and go to state 17
+    LETTER          shift and go to state 18
+
+    letters                        shift and go to state 29
+
+state 18
+
+    (27) letters -> LETTER .
+    (29) letters -> LETTER . letters
+    (26) letters -> . FOREIGN_LETTER
+    (27) letters -> . LETTER
+    (28) letters -> . FOREIGN_LETTER letters
+    (29) letters -> . LETTER letters
+    NEWLINE         reduce using rule 27 (letters -> LETTER .)
+    LANG_END        reduce using rule 27 (letters -> LETTER .)
+    PUNCT_END       reduce using rule 27 (letters -> LETTER .)
+    FOREIGN_LETTER  shift and go to state 17
+    LETTER          shift and go to state 18
+
+    letters                        shift and go to state 30
+
+state 19
+
+    (4) attributes -> attributes NEWLINE ATTRIBUTE .
+    NEWLINES        reduce using rule 4 (attributes -> attributes NEWLINE ATTRIBUTE .)
+    NEWLINE         reduce using rule 4 (attributes -> attributes NEWLINE ATTRIBUTE .)
+
+
+state 20
+
+    (6) text_block -> text_block NEWLINES . paragraph
+    (7) paragraph -> . element
+    (8) paragraph -> . paragraph element
+    (9) element -> . SPAN_TAG
+    (10) element -> . word
+    (11) word -> . beginnings letters NEWLINE endings
+    (12) word -> . beginnings letters NEWLINE
+    (13) word -> . letters NEWLINE endings
+    (14) word -> . letters NEWLINE
+    (15) word -> . letters endings
+    (16) word -> . beginnings letters endings
+    (17) beginnings -> . LANG_START
+    (18) beginnings -> . PUNCT_BEGIN
+    (19) beginnings -> . LANG_START beginnings
+    (20) beginnings -> . PUNCT_BEGIN beginnings
+    (26) letters -> . FOREIGN_LETTER
+    (27) letters -> . LETTER
+    (28) letters -> . FOREIGN_LETTER letters
+    (29) letters -> . LETTER letters
+    SPAN_TAG        shift and go to state 11
+    LANG_START      shift and go to state 15
+    PUNCT_BEGIN     shift and go to state 16
+    FOREIGN_LETTER  shift and go to state 17
+    LETTER          shift and go to state 18
+
+    paragraph                      shift and go to state 31
+    element                        shift and go to state 10
+    word                           shift and go to state 12
+    beginnings                     shift and go to state 13
+    letters                        shift and go to state 14
+
+state 21
+
+    (8) paragraph -> paragraph element .
+    SPAN_TAG        reduce using rule 8 (paragraph -> paragraph element .)
+    LANG_START      reduce using rule 8 (paragraph -> paragraph element .)
+    PUNCT_BEGIN     reduce using rule 8 (paragraph -> paragraph element .)
+    FOREIGN_LETTER  reduce using rule 8 (paragraph -> paragraph element .)
+    LETTER          reduce using rule 8 (paragraph -> paragraph element .)
+    NEWLINES        reduce using rule 8 (paragraph -> paragraph element .)
+    $end            reduce using rule 8 (paragraph -> paragraph element .)
+
+
+state 22
+
+    (11) word -> beginnings letters . NEWLINE endings
+    (12) word -> beginnings letters . NEWLINE
+    (16) word -> beginnings letters . endings
+    (21) endings -> . LANG_END
+    (22) endings -> . PUNCT_END
+    (23) endings -> . endings LANG_END
+    (24) endings -> . endings PUNCT_END
+    (25) endings -> . endings NEWLINE
+    NEWLINE         shift and go to state 32
+    LANG_END        shift and go to state 25
+    PUNCT_END       shift and go to state 26
+
+    endings                        shift and go to state 33
+
+state 23
+
+    (13) word -> letters NEWLINE . endings
+    (14) word -> letters NEWLINE .
+    (21) endings -> . LANG_END
+    (22) endings -> . PUNCT_END
+    (23) endings -> . endings LANG_END
+    (24) endings -> . endings PUNCT_END
+    (25) endings -> . endings NEWLINE
+    SPAN_TAG        reduce using rule 14 (word -> letters NEWLINE .)
+    LANG_START      reduce using rule 14 (word -> letters NEWLINE .)
+    PUNCT_BEGIN     reduce using rule 14 (word -> letters NEWLINE .)
+    FOREIGN_LETTER  reduce using rule 14 (word -> letters NEWLINE .)
+    LETTER          reduce using rule 14 (word -> letters NEWLINE .)
+    NEWLINES        reduce using rule 14 (word -> letters NEWLINE .)
+    $end            reduce using rule 14 (word -> letters NEWLINE .)
+    LANG_END        shift and go to state 25
+    PUNCT_END       shift and go to state 26
+
+    endings                        shift and go to state 34
+
+state 24
+
+    (15) word -> letters endings .
+    (23) endings -> endings . LANG_END
+    (24) endings -> endings . PUNCT_END
+    (25) endings -> endings . NEWLINE
+    SPAN_TAG        reduce using rule 15 (word -> letters endings .)
+    LANG_START      reduce using rule 15 (word -> letters endings .)
+    PUNCT_BEGIN     reduce using rule 15 (word -> letters endings .)
+    FOREIGN_LETTER  reduce using rule 15 (word -> letters endings .)
+    LETTER          reduce using rule 15 (word -> letters endings .)
+    NEWLINES        reduce using rule 15 (word -> letters endings .)
+    $end            reduce using rule 15 (word -> letters endings .)
+    LANG_END        shift and go to state 35
+    PUNCT_END       shift and go to state 36
+    NEWLINE         shift and go to state 37
+
+
+state 25
+
+    (21) endings -> LANG_END .
+    LANG_END        reduce using rule 21 (endings -> LANG_END .)
+    PUNCT_END       reduce using rule 21 (endings -> LANG_END .)
+    NEWLINE         reduce using rule 21 (endings -> LANG_END .)
+    SPAN_TAG        reduce using rule 21 (endings -> LANG_END .)
+    LANG_START      reduce using rule 21 (endings -> LANG_END .)
+    PUNCT_BEGIN     reduce using rule 21 (endings -> LANG_END .)
+    FOREIGN_LETTER  reduce using rule 21 (endings -> LANG_END .)
+    LETTER          reduce using rule 21 (endings -> LANG_END .)
+    NEWLINES        reduce using rule 21 (endings -> LANG_END .)
+    $end            reduce using rule 21 (endings -> LANG_END .)
+
+
+state 26
+
+    (22) endings -> PUNCT_END .
+    LANG_END        reduce using rule 22 (endings -> PUNCT_END .)
+    PUNCT_END       reduce using rule 22 (endings -> PUNCT_END .)
+    NEWLINE         reduce using rule 22 (endings -> PUNCT_END .)
+    SPAN_TAG        reduce using rule 22 (endings -> PUNCT_END .)
+    LANG_START      reduce using rule 22 (endings -> PUNCT_END .)
+    PUNCT_BEGIN     reduce using rule 22 (endings -> PUNCT_END .)
+    FOREIGN_LETTER  reduce using rule 22 (endings -> PUNCT_END .)
+    LETTER          reduce using rule 22 (endings -> PUNCT_END .)
+    NEWLINES        reduce using rule 22 (endings -> PUNCT_END .)
+    $end            reduce using rule 22 (endings -> PUNCT_END .)
+
+
+state 27
+
+    (19) beginnings -> LANG_START beginnings .
+    FOREIGN_LETTER  reduce using rule 19 (beginnings -> LANG_START beginnings .)
+    LETTER          reduce using rule 19 (beginnings -> LANG_START beginnings .)
+
+
+state 28
+
+    (20) beginnings -> PUNCT_BEGIN beginnings .
+    FOREIGN_LETTER  reduce using rule 20 (beginnings -> PUNCT_BEGIN beginnings .)
+    LETTER          reduce using rule 20 (beginnings -> PUNCT_BEGIN beginnings .)
+
+
+state 29
+
+    (28) letters -> FOREIGN_LETTER letters .
+    NEWLINE         reduce using rule 28 (letters -> FOREIGN_LETTER letters .)
+    LANG_END        reduce using rule 28 (letters -> FOREIGN_LETTER letters .)
+    PUNCT_END       reduce using rule 28 (letters -> FOREIGN_LETTER letters .)
+
+
+state 30
+
+    (29) letters -> LETTER letters .
+    NEWLINE         reduce using rule 29 (letters -> LETTER letters .)
+    LANG_END        reduce using rule 29 (letters -> LETTER letters .)
+    PUNCT_END       reduce using rule 29 (letters -> LETTER letters .)
+
+
+state 31
+
+    (6) text_block -> text_block NEWLINES paragraph .
+    (8) paragraph -> paragraph . element
+    (9) element -> . SPAN_TAG
+    (10) element -> . word
+    (11) word -> . beginnings letters NEWLINE endings
+    (12) word -> . beginnings letters NEWLINE
+    (13) word -> . letters NEWLINE endings
+    (14) word -> . letters NEWLINE
+    (15) word -> . letters endings
+    (16) word -> . beginnings letters endings
+    (17) beginnings -> . LANG_START
+    (18) beginnings -> . PUNCT_BEGIN
+    (19) beginnings -> . LANG_START beginnings
+    (20) beginnings -> . PUNCT_BEGIN beginnings
+    (26) letters -> . FOREIGN_LETTER
+    (27) letters -> . LETTER
+    (28) letters -> . FOREIGN_LETTER letters
+    (29) letters -> . LETTER letters
+    NEWLINES        reduce using rule 6 (text_block -> text_block NEWLINES paragraph .)
+    $end            reduce using rule 6 (text_block -> text_block NEWLINES paragraph .)
+    SPAN_TAG        shift and go to state 11
+    LANG_START      shift and go to state 15
+    PUNCT_BEGIN     shift and go to state 16
+    FOREIGN_LETTER  shift and go to state 17
+    LETTER          shift and go to state 18
+
+    element                        shift and go to state 21
+    word                           shift and go to state 12
+    beginnings                     shift and go to state 13
+    letters                        shift and go to state 14
+
+state 32
+
+    (11) word -> beginnings letters NEWLINE . endings
+    (12) word -> beginnings letters NEWLINE .
+    (21) endings -> . LANG_END
+    (22) endings -> . PUNCT_END
+    (23) endings -> . endings LANG_END
+    (24) endings -> . endings PUNCT_END
+    (25) endings -> . endings NEWLINE
+    SPAN_TAG        reduce using rule 12 (word -> beginnings letters NEWLINE .)
+    LANG_START      reduce using rule 12 (word -> beginnings letters NEWLINE .)
+    PUNCT_BEGIN     reduce using rule 12 (word -> beginnings letters NEWLINE .)
+    FOREIGN_LETTER  reduce using rule 12 (word -> beginnings letters NEWLINE .)
+    LETTER          reduce using rule 12 (word -> beginnings letters NEWLINE .)
+    NEWLINES        reduce using rule 12 (word -> beginnings letters NEWLINE .)
+    $end            reduce using rule 12 (word -> beginnings letters NEWLINE .)
+    LANG_END        shift and go to state 25
+    PUNCT_END       shift and go to state 26
+
+    endings                        shift and go to state 38
+
+state 33
+
+    (16) word -> beginnings letters endings .
+    (23) endings -> endings . LANG_END
+    (24) endings -> endings . PUNCT_END
+    (25) endings -> endings . NEWLINE
+    SPAN_TAG        reduce using rule 16 (word -> beginnings letters endings .)
+    LANG_START      reduce using rule 16 (word -> beginnings letters endings .)
+    PUNCT_BEGIN     reduce using rule 16 (word -> beginnings letters endings .)
+    FOREIGN_LETTER  reduce using rule 16 (word -> beginnings letters endings .)
+    LETTER          reduce using rule 16 (word -> beginnings letters endings .)
+    NEWLINES        reduce using rule 16 (word -> beginnings letters endings .)
+    $end            reduce using rule 16 (word -> beginnings letters endings .)
+    LANG_END        shift and go to state 35
+    PUNCT_END       shift and go to state 36
+    NEWLINE         shift and go to state 37
+
+
+state 34
+
+    (13) word -> letters NEWLINE endings .
+    (23) endings -> endings . LANG_END
+    (24) endings -> endings . PUNCT_END
+    (25) endings -> endings . NEWLINE
+    SPAN_TAG        reduce using rule 13 (word -> letters NEWLINE endings .)
+    LANG_START      reduce using rule 13 (word -> letters NEWLINE endings .)
+    PUNCT_BEGIN     reduce using rule 13 (word -> letters NEWLINE endings .)
+    FOREIGN_LETTER  reduce using rule 13 (word -> letters NEWLINE endings .)
+    LETTER          reduce using rule 13 (word -> letters NEWLINE endings .)
+    NEWLINES        reduce using rule 13 (word -> letters NEWLINE endings .)
+    $end            reduce using rule 13 (word -> letters NEWLINE endings .)
+    LANG_END        shift and go to state 35
+    PUNCT_END       shift and go to state 36
+    NEWLINE         shift and go to state 37
+
+
+state 35
+
+    (23) endings -> endings LANG_END .
+    LANG_END        reduce using rule 23 (endings -> endings LANG_END .)
+    PUNCT_END       reduce using rule 23 (endings -> endings LANG_END .)
+    NEWLINE         reduce using rule 23 (endings -> endings LANG_END .)
+    SPAN_TAG        reduce using rule 23 (endings -> endings LANG_END .)
+    LANG_START      reduce using rule 23 (endings -> endings LANG_END .)
+    PUNCT_BEGIN     reduce using rule 23 (endings -> endings LANG_END .)
+    FOREIGN_LETTER  reduce using rule 23 (endings -> endings LANG_END .)
+    LETTER          reduce using rule 23 (endings -> endings LANG_END .)
+    NEWLINES        reduce using rule 23 (endings -> endings LANG_END .)
+    $end            reduce using rule 23 (endings -> endings LANG_END .)
+
+
+state 36
+
+    (24) endings -> endings PUNCT_END .
+    LANG_END        reduce using rule 24 (endings -> endings PUNCT_END .)
+    PUNCT_END       reduce using rule 24 (endings -> endings PUNCT_END .)
+    NEWLINE         reduce using rule 24 (endings -> endings PUNCT_END .)
+    SPAN_TAG        reduce using rule 24 (endings -> endings PUNCT_END .)
+    LANG_START      reduce using rule 24 (endings -> endings PUNCT_END .)
+    PUNCT_BEGIN     reduce using rule 24 (endings -> endings PUNCT_END .)
+    FOREIGN_LETTER  reduce using rule 24 (endings -> endings PUNCT_END .)
+    LETTER          reduce using rule 24 (endings -> endings PUNCT_END .)
+    NEWLINES        reduce using rule 24 (endings -> endings PUNCT_END .)
+    $end            reduce using rule 24 (endings -> endings PUNCT_END .)
+
+
+state 37
+
+    (25) endings -> endings NEWLINE .
+    LANG_END        reduce using rule 25 (endings -> endings NEWLINE .)
+    PUNCT_END       reduce using rule 25 (endings -> endings NEWLINE .)
+    NEWLINE         reduce using rule 25 (endings -> endings NEWLINE .)
+    SPAN_TAG        reduce using rule 25 (endings -> endings NEWLINE .)
+    LANG_START      reduce using rule 25 (endings -> endings NEWLINE .)
+    PUNCT_BEGIN     reduce using rule 25 (endings -> endings NEWLINE .)
+    FOREIGN_LETTER  reduce using rule 25 (endings -> endings NEWLINE .)
+    LETTER          reduce using rule 25 (endings -> endings NEWLINE .)
+    NEWLINES        reduce using rule 25 (endings -> endings NEWLINE .)
+    $end            reduce using rule 25 (endings -> endings NEWLINE .)
+
+
+state 38
+
+    (11) word -> beginnings letters NEWLINE endings .
+    (23) endings -> endings . LANG_END
+    (24) endings -> endings . PUNCT_END
+    (25) endings -> endings . NEWLINE
+    SPAN_TAG        reduce using rule 11 (word -> beginnings letters NEWLINE endings .)
+    LANG_START      reduce using rule 11 (word -> beginnings letters NEWLINE endings .)
+    PUNCT_BEGIN     reduce using rule 11 (word -> beginnings letters NEWLINE endings .)
+    FOREIGN_LETTER  reduce using rule 11 (word -> beginnings letters NEWLINE endings .)
+    LETTER          reduce using rule 11 (word -> beginnings letters NEWLINE endings .)
+    NEWLINES        reduce using rule 11 (word -> beginnings letters NEWLINE endings .)
+    $end            reduce using rule 11 (word -> beginnings letters NEWLINE endings .)
+    LANG_END        shift and go to state 35
+    PUNCT_END       shift and go to state 36
+    NEWLINE         shift and go to state 37
