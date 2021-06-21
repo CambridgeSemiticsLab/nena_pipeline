@@ -1,14 +1,836 @@
 [
-    {
-        "name": "Barwar",
-        "code": "barwar",
-        "location": "NW Iraq",
-        "source": "Fieldwork by Geoffrey Khan"
-    },
-    {
-        "name": "Christian Urmi",
-        "code": "urmi_c",
-        "location": "NW Iran",
-        "source": "Fieldwork by Geoffrey Khan"
-    }
+  {
+    "code": "alqosh",
+    "name": "Alqosh",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "amedia_j",
+    "name": "Amedia, Jewish",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "ankawa",
+    "name": "Ankawa",
+    "location": "NE Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "aqra",
+    "name": "Aqra",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "aradhin",
+    "name": "Aradhin",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "arbel_j",
+    "name": "Arbel, Jewish",
+    "location": "NE Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "arbuš",
+    "name": "Arbuš",
+    "location": "",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "ashitha",
+    "name": "Ashitha",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "azran_gargarnaye",
+    "name": "Azran Gargarnaye",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "baqopa",
+    "name": "Baqopa",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "bartille",
+    "name": "Bartille",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "barwar",
+    "name": "Barwar",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "barwar_of_qočanəṣ",
+    "name": "Barwar of Qočanəṣ",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "barzan",
+    "name": "Barzan",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "baṭnaya",
+    "name": "Baṭnaya",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "bāz_aghgab",
+    "name": "Bāz (Aghgab)",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "bāz_aruntus",
+    "name": "Bāz (Aruntus)",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "bāz_khabur",
+    "name": "Bāz (Khabur)",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "bāz_ma_xtaya",
+    "name": "Bāz (Ma Xtaya)",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "bāz_shwawa",
+    "name": "Bāz (Shwawa)",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "baznaye",
+    "name": "Baznaye",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "bebede",
+    "name": "Bebede",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "bersive",
+    "name": "Bersive",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "bēṣpən",
+    "name": "Bēṣpən",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "betanure",
+    "name": "Betanure",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "bidaro",
+    "name": "Bidaro",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "bijar",
+    "name": "Bijar",
+    "location": "W Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "billin",
+    "name": "Billin",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "bne_lagippa",
+    "name": "Bne-Lagippa",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "bnerumta_upper_tiyari_",
+    "name": "Bnerumta (Upper Tiyari )",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "bohtan",
+    "name": "Bohtan",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "bokan",
+    "name": "Bokan",
+    "location": "W Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "bədyəl",
+    "name": "Bədyəl",
+    "location": "NE Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "bəjil",
+    "name": "Bəjil",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "challa",
+    "name": "Challa",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "challək",
+    "name": "Challək",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "darband",
+    "name": "Darband",
+    "location": "NW Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "darbandoke",
+    "name": "Darbandoke",
+    "location": "NE Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "derabun",
+    "name": "Derabun",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "dere",
+    "name": "Dere",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "derəgni",
+    "name": "Derəgni",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "diyana_zariwaw",
+    "name": "Diyana-Zariwaw",
+    "location": "NE Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "dīz",
+    "name": "Dīz",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "dobe",
+    "name": "Dobe",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "dohok",
+    "name": "Dohok",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "enəške",
+    "name": "Enəške",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "gargarnaye",
+    "name": "Gargarnaye",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "gawar",
+    "name": "Gawar",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "gawilan",
+    "name": "Gawilan",
+    "location": "NW Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "gaznax",
+    "name": "Gaznax",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "ḥalabja",
+    "name": "Ḥalabja",
+    "location": "NE Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "halana",
+    "name": "Halana",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "halmun",
+    "name": "Halmun",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "hamziye",
+    "name": "Hamziye",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "harbole",
+    "name": "Harbole",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "harmashe",
+    "name": "Harmashe",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "hassana",
+    "name": "Hassana",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "hertevin",
+    "name": "Hertevin",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "hoz",
+    "name": "Hoz",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "išši",
+    "name": "Išši",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "iṣṣin",
+    "name": "Iṣṣin",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "jilu",
+    "name": "Jilu",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "jilu_khabur",
+    "name": "Jilu (Khabur)",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "jənnet",
+    "name": "Jənnet",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "karəmlesh",
+    "name": "Karəmlesh",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "kerend",
+    "name": "Kerend",
+    "location": "W Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "komane",
+    "name": "Komane",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "koy_sanjaq",
+    "name": "Koy Sanjaq",
+    "location": "NE Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "koy_sanjaq",
+    "name": "Koy Sanjaq",
+    "location": "NE Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "lewən",
+    "name": "Lewən",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "lower_tiyari_sarspido",
+    "name": "Lower Tiyari Sarspido",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "mangesh",
+    "name": "Mangesh",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "mar_yaqo",
+    "name": "Mar-Yaqo",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "marbišo_šamməsdin",
+    "name": "Marbišo (Šamməsdin)",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "marga",
+    "name": "Marga",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "mawana",
+    "name": "Mawana",
+    "location": "NW Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "mēr",
+    "name": "Mēr",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "meze",
+    "name": "Meze",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "mne_belaθa",
+    "name": "Mne Belaθa",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "mne_maθa",
+    "name": "Mne Maθa",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "nargəzine_xarjawa_nr_aqra",
+    "name": "Nargəzine-Xarjawa (nr. Aqra)",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "nerwa",
+    "name": "Nerwa",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "nerwa",
+    "name": "Nerwa",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "peshabur",
+    "name": "Peshabur",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "qaladeze",
+    "name": "Qaladeze",
+    "location": "NE Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "qarah_ḥasan",
+    "name": "Qarah Ḥasan",
+    "location": "W Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "qaraqosh",
+    "name": "Qaraqosh",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "qarawilla",
+    "name": "Qarawilla",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "qasr_shirin",
+    "name": "Qasr Shirin",
+    "location": "W Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "qočanəṣ",
+    "name": "Qočanəṣ",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "rustaqa",
+    "name": "Rustaqa",
+    "location": "NE Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "ruwanduz",
+    "name": "Ruwanduz",
+    "location": "NE Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "sablagh",
+    "name": "Sablagh",
+    "location": "W Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "salamas",
+    "name": "Salamas",
+    "location": "NW Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "salamas",
+    "name": "Salamas",
+    "location": "NW Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "šamməsdin_iyyəl",
+    "name": "Šamməsdin Iyyəl",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "šamməsdin_nočiya",
+    "name": "Šamməsdin Nočiya",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "sanandaj_c",
+    "name": "Sanandaj, Christian",
+    "location": "W Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "sanandaj_j",
+    "name": "Sanandaj, Jewish",
+    "location": "W Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "saqǝz",
+    "name": "Saqǝz",
+    "location": "W Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "saṛa_armenia",
+    "name": "Saṛa (Armenia)",
+    "location": "Georgia & Armenia",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "saṛa_khabur",
+    "name": "Saṛa (Khabur)",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "sardarid",
+    "name": "Sardarid",
+    "location": "NW Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "sarspido",
+    "name": "Sarspido",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "sāt",
+    "name": "Sāt",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "shahe",
+    "name": "Shahe",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "shaqlawa",
+    "name": "Shaqlawa",
+    "location": "NE Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "sharanish",
+    "name": "Sharanish",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "shiyuz",
+    "name": "Shiyuz",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "shōsh_u_sharmən_nr_aqra",
+    "name": "Shōsh-u-Sharmən (nr. Aqra)",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "shǝnno",
+    "name": "Shǝnno",
+    "location": "NW Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "solduz",
+    "name": "Solduz",
+    "location": "NW Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "sulemaniyya_c",
+    "name": "Sulemaniyya, Christian",
+    "location": "NE Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "sulemaniyya_j",
+    "name": "Sulemaniyya, Jewish",
+    "location": "NE Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "ṭāl",
+    "name": "Ṭāl",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "tel_tamməṛ_upper_tiyari_",
+    "name": "Tel Tamməṛ (Upper Tiyari )",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "telkepe",
+    "name": "Telkepe",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "tikab",
+    "name": "Tikab",
+    "location": "W Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "timur",
+    "name": "Timur",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "tisqopa",
+    "name": "Tisqopa",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "txuma_bərəjnaye",
+    "name": "Txuma Bərəjnaye",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "txuma_gawaya",
+    "name": "Txuma Gawaya",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "txuma_gudəkθa",
+    "name": "Txuma Gudəkθa",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "txuma_gəssa",
+    "name": "Txuma Gəssa",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "txuma_mazṛa",
+    "name": "Txuma Mazṛa",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "təlla",
+    "name": "Təlla",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "tən",
+    "name": "Tən",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "umra",
+    "name": "Umra",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "umra_d_shish",
+    "name": "Umra d-Shish",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "urmi_c",
+    "name": "Urmi, Christian",
+    "location": "NW Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "urmi_j",
+    "name": "Urmi, Jewish",
+    "location": "NW Iran",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "van",
+    "name": "Van",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "walṭo_upper_tiyari_",
+    "name": "Walṭo (Upper Tiyari )",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "xanaqin",
+    "name": "Xanaqin",
+    "location": "NE Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "xarjawa",
+    "name": "Xarjawa",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "xərpa_nr._aqra",
+    "name": "Xərpa (nr. Aqra)",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "zakho_c",
+    "name": "Zakho, Christian",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "zakho_j",
+    "name": "Zakho, Jewish",
+    "location": "NW Iraq",
+    "source": "Fieldwork by Geoffrey Khan"
+  },
+  {
+    "code": "zawitha",
+    "name": "Zawitha",
+    "location": "SE Turkey",
+    "source": "Fieldwork by Geoffrey Khan"
+  }
 ]
