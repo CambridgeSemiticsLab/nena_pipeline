@@ -12,11 +12,11 @@ from .build_docs import DocsBuilder
 class CorpusPipeline:
 
     def __init__(self, configs):
-    
+
         """Initialize pipeline configs / error handling.
 
         Args:
-            configs: string or dict. If string, should be a 
+            configs: string or dict. If string, should be a
                 filepath to a json file of configs. If dict,
                 should contain all of the necessary config
                 keys for the parser processes.
@@ -33,7 +33,7 @@ class CorpusPipeline:
                 '"configs" should be either string (filepath) '
                  f'or dict, not {type(configs)}'
             )
-    
+
         # a place to store error messages;
         # the messages are keyed by process,
         # the value is a list of error strings
@@ -61,21 +61,21 @@ class CorpusPipeline:
 
         Returns:
             Exports to the outdir three things:
-                1) `tf` directory containing the indexed corpus in 
+                1) `tf` directory containing the indexed corpus in
                     text-fabric format
                 2) documentation.md: a file containing documentation
                     on the makeup of the corpus
-                3) search_tool: set of static files which are the 
+                3) search_tool: set of static files which are the
                     nena_search compiled from the corpus data
         """
-        
+
         # create the outdir if needed
         if not Path(outdir).exists():
             Path(outdir).mkdir()
 
-        # parse the .nena files 
+        # parse the .nena files
         dialect2data = self.parse_nena(indir)
-        
+
         # index the data with Text-Fabric;
         # produces .tf files
         self.build_tf(dialect2data, outdir)
@@ -110,7 +110,7 @@ class CorpusPipeline:
             try:
                 corpus_id = metadata['corpus_id']
             except KeyError:
-                raise errlog.append(
+                errlog.append(
                     f'File {textfile} does not have `corpus_id` metadata!'
                 )
 
@@ -120,7 +120,7 @@ class CorpusPipeline:
                 print(f'\tparsing {textfile}...')
                 parsed = parser.parse(
                     lexer.tokenize(norm_text)
-                ) 
+                )
             except Exception as e:
                 print(f'\t\tfail')
                 traceback = self.get_traceback(e)
@@ -144,10 +144,10 @@ class CorpusPipeline:
 
     def get_metadata(self, nenastring):
         """Retrieve metadata from a .nena markdown string.
-    
+
         Though metadata is parsed in the parser,
-        we need a "dumb" way to get metadata from a file 
-        before it is parsed so that parse errors can be tied to 
+        we need a "dumb" way to get metadata from a file
+        before it is parsed so that parse errors can be tied to
         corpus_id rather than just a filename.
         """
         meta_re = r'([^\s]*)\s*::\s*([^\s]*)'
@@ -162,9 +162,9 @@ class CorpusPipeline:
             print()
             print('Indexing new corpus data...')
             tfbuilder = NenaTfBuilder(
-                dialect2data, 
+                dialect2data,
                 outdir,
-                self.configs, 
+                self.configs,
             )
             tfbuilder.build()
             print('\tSUCCESS! TF corpus built.')
@@ -187,9 +187,9 @@ class CorpusPipeline:
         search_dir = Path(outdir).joinpath('search_tool')
         tf_dir = Path(outdir).joinpath('tf')
         makeSearchClients(
-            'nena', 
-            str(search_dir), 
-            self.configs['search_configs'], 
+            'nena',
+            str(search_dir),
+            self.configs['search_configs'],
             dataDir=str(tf_dir)
         )
         print('\tdone!')
