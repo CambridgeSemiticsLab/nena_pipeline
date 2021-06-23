@@ -173,8 +173,13 @@ def NenaLexerParser(configdict):
             if field == 'speakers':
                 speakers = {}
                 for speakset in value.split(','):
-                    initials, speaker = speakset.split('=')
-                    speakers[initials.strip()] = speaker.strip()
+                    if '=' in speakset:
+                        initials, speaker = speakset.split('=')
+                        speakers[initials.strip()] = speaker.strip()
+                    else:
+                        names = speakset.split()
+                        initials = ''.join(n[0].upper() for n in names)
+                        speakers[initials] = speakset
                 value = speakers
                     
             # set dialect
