@@ -163,6 +163,8 @@ class NenaTfBuilder:
             generic=self.metadata['NENA_corpus'],
             intFeatures=self.metadata['intFeatures'],
             featureMeta=self.metadata['object_features'],
+            force=True,
+            warn=True,
             **walk_kwargs,
         )
     
