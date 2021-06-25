@@ -1,19 +1,19 @@
 """
 Yacc-style lexer and parser for NENA Markup texts with Sly
 
-Sly is a Python implementation of Yacc ("yet another compiler 
+Sly is a Python implementation of Yacc ("yet another compiler
 compiler"). Yacc is a unix-based shift-reduce parser. Sly follows
 the same basic parsing approach. The Yacc documentation is helpful
 for understanding the basic concepts:
 https://www.ibm.com/docs/en/zos/2.3.0?topic=tools-tutorial-using-lex-yacc#lytut
 
 With Yacc parsing, there are two classes that are used: a lexer and a parser.
-The lexer divides the text into tokens. The parser then combines tokens 
-recursively. 
+The lexer divides the text into tokens. The parser then combines tokens
+recursively.
 
 Sly itself has some quirky, non-Pythonic syntax, done with
-some under-the-hood workarounds implemented by the developer. 
-This is unfortunate. Nevertheless, Sly is a simple and easy 
+some under-the-hood workarounds implemented by the developer.
+This is unfortunate. Nevertheless, Sly is a simple and easy
 to use tool that fits the goals here well. For docs see:
     https://sly.readthedocs.io/en/latest/
 
@@ -30,24 +30,24 @@ from pathlib import Path
 
 class Configs:
     """Provide configs for the Lexer/Parser definitions.
-    
+
     Configs for the lexer/parser are stored in various JSON
     files, all linked to by a single config file. These various
-    sub-config files contain a lot of regex patterns used by 
-    the lexer to recognize the various tokens. 
+    sub-config files contain a lot of regex patterns used by
+    the lexer to recognize the various tokens.
     These patterns need to be preprocessed in three main ways:
 
         1. basic patterns simply read in and stored as a definition
             (e.g. the regex for a span tag)
-        2. a set of patterns that needs to be pipe-joined for 
-            set-based regex matching (e.g. pipe-separated letters in 
+        2. a set of patterns that needs to be pipe-joined for
+            set-based regex matching (e.g. pipe-separated letters in
             the alphabet)
-        3. a set of patterns that are precompiled using re.compile; 
+        3. a set of patterns that are precompiled using re.compile;
             these are used especially for group matching to extract
             data from the tags (e.g. get the language code out of a
             language tag)
 
-    These three methods are accomplished with self.defitions, 
+    These three methods are accomplished with self.defitions,
     self.piped_regex, and self.compiled_regex and stored as
     attributes of the class. The returned data are dictionaries
     keyed by the name of the patterns (e.g. self.piped_regex['alphabet'])
@@ -55,14 +55,15 @@ class Configs:
 
     def __init__(self, configdict):
         # load config file
-        self.config = configdict 
+        self.config = configdict
         self.definitions = self.load_all_jsons(self.config)
         self.piped_regex = self.pipe_regexs(self.definitions)
         self.compiled_regex = self.compile_regexs(self.definitions)
 
-    def load_json(self, path):
+    def load_json(self, relative_path):
         """Load a JSON file."""
-        with open(path, 'r') as infile:
+        path = Path(__file__).parent.parent / relative_path
+        with path.open('r') as infile:
             return json.load(infile)
 
     def load_all_jsons(self, configdata):
@@ -98,20 +99,20 @@ def NenaLexerParser(configdict):
     Sly Lexer and Parser objects infer several of their parameters directly
     from the class definition itself rather than from the __init__
     parameters. For example, the tokens are defined as a set of variables,
-    whose identity is established when the class is compiled by Python. 
+    whose identity is established when the class is compiled by Python.
     This is un-Pythonic, and it makes it hard to define parameters
     on the fly from a specified source as we want to do here. For
-    instance, it should be easy to feed in a config file and have the 
-    tokens identified from patterns in that file. But this is not possible 
+    instance, it should be easy to feed in a config file and have the
+    tokens identified from patterns in that file. But this is not possible
     unless the definitions are already in the namespace. This is undesirable
-    if we want to load the classes in another module without any run time 
+    if we want to load the classes in another module without any run time
     at import.
 
-    To get around this problem, we provide a function which gives a 
-    namespace for the class definitions, so that the varibles can be 
+    To get around this problem, we provide a function which gives a
+    namespace for the class definitions, so that the varibles can be
     established dynamically when the function is called, and based on
     the input to the function (in this case the config file).
-    An instanced version of the newly-defined class is returned 
+    An instanced version of the newly-defined class is returned
     when the function is executed.
 
     Args:
@@ -128,39 +129,39 @@ def NenaLexerParser(configdict):
     cpr = configs.compiled_regex
 
     # define the lexer by inheriting the Sly Lexer object;
-    # token pattern matches defined using decorators (@_) 
+    # token pattern matches defined using decorators (@_)
     # with definitions established by configs
     class NenaLexer(Lexer):
-        
+
         def __init__(self):
             super().__init__()
             self.dialect = None
-       
+
         def error(self, t):
             """Give warning for bad characters"""
             raise Exception(f"Illegal character {repr(t.value[0])} @ index {self.index}")
-        
+
         # set of token names as required by Sly the Lexer class;
         # NB that these variables have not yet been defined (!)
-        # yet this is the method required by the Sly Lexer. A 
+        # yet this is the method required by the Sly Lexer. A
         # syntax error does not occur because of under-the-hood
         # work-arounds in the Sly Lexer object (made by the developer)
         tokens = {
             LETTER, PUNCT_BEGIN, PUNCT_END, NEWLINES,
-            NEWLINE, SPAN_TAG, ATTRIBUTE, 
-            FOREIGN_LETTER, LANG_START, LANG_END        
+            NEWLINE, SPAN_TAG, ATTRIBUTE,
+            FOREIGN_LETTER, LANG_START, LANG_END
         }
-    
+
         # ------------------PATTERN MATCHING------------------
-        # from this point forward, patterns for matching tokens 
+        # from this point forward, patterns for matching tokens
         # are defined using either decorators with function definitions
         # or simple variable definitions; the decorators specify regex
         # patterns as retrieved from the configs, which are in turn used
-        # for matching the given item; the functions tell Sly Lexer what to 
-        # do with the matched token, fed in as a Token object (t) with 
-        # a value attribute that can be modified 
+        # for matching the given item; the functions tell Sly Lexer what to
+        # do with the matched token, fed in as a Token object (t) with
+        # a value attribute that can be modified
 
-        # Metadata is broken down into specific attributes 
+        # Metadata is broken down into specific attributes
         @_(defs['markup_tags']['text_meta'])
         def ATTRIBUTE(self, t):
 
@@ -169,7 +170,7 @@ def NenaLexerParser(configdict):
                 cpr['markup_tags']['text_meta'].match(t.value).groups()
             )
 
-            # recognize speakers 
+            # recognize speakers
             if field == 'speakers':
                 speakers = {}
                 for speakset in value.split(','):
@@ -181,16 +182,16 @@ def NenaLexerParser(configdict):
                         initials = ''.join(n[0].upper() for n in names)
                         speakers[initials] = speakset
                 value = speakers
-                    
+
             # set dialect
             if field == 'dialect':
-                self.dialect = value 
+                self.dialect = value
 
             # set the token value
             t.value = {field:value}
 
             return t
-        
+
         # span tags can contain timestamp, linenumber, or speaker updates;
         # individual fields are space-separated
         @_(defs['markup_tags']['span_tag'])
@@ -218,55 +219,55 @@ def NenaLexerParser(configdict):
                     )
             t.value = attribs
             return t
-        
+
         # define simple match patterns for newlines
         # NB: that order here matters; first matched first
-        # the reason for treating newlines/newline separately is that 
+        # the reason for treating newlines/newline separately is that
         # 2+ newlines indicate a new paragraph (or alternatively
         # the transition between the attribute block and the text block),
         # whereas a single newline is treated as a space (or a separator
         # between attributes in the attribute block)
         NEWLINES = defs['markup_tags']['newlines']
         NEWLINE = defs['markup_tags']['newline']
-        
+
         # recognize letters in the normal alphabet;
-        # separate value into a dict; this is to 
-        # accommodate the foreign letter detection 
-        # later on (see below), where the letter's 
-        # 'class' key will be checked for foreign 
+        # separate value into a dict; this is to
+        # accommodate the foreign letter detection
+        # later on (see below), where the letter's
+        # 'class' key will be checked for foreign
         # status in order to tag the whole word
         @_(ppr['alphabet'])
         def LETTER(self, t):
             t.value = {'text': t.value, 'class': 'letter'}
             return t
-        
+
         # recognize punctuators assigned to beginning of word
         @_(ppr['punct_begin'])
         def PUNCT_BEGIN(self, t):
             return t
-        
+
         # recognize punctuators assigned to end of word
         @_(ppr['punct_end'])
         def PUNCT_END(self, t):
             return t
-        
+
         # foreign language beginning tag
         @_(defs['markup_tags']['lang_start'])
         def LANG_START(self, t):
             lang = cpr['markup_tags']['lang_start'].match(t.value).group(1)
             tag = t.value.strip()
             t.value = {
-                'class': 'LANG_START', 
+                'class': 'LANG_START',
                 'text': tag, 'lang': lang
             }
             return t
-            
-        # foreign language ending tag 
+
+        # foreign language ending tag
         @_(defs['markup_tags']['lang_end'])
         def LANG_END(self, t):
             t.value = {'class': 'LANG_END', 'text': t.value}
             return t
-        
+
         # recognize letters that are not part of the canonical alphabet;
         # these are often found in foreign words for example
         # NB: tokens evaluated in order of appearance here
@@ -276,27 +277,27 @@ def NenaLexerParser(configdict):
             t.value = {'class':'foreign', 'text': t.value}
             return t
 
-    # define the parser class; NB that tokens depends on 
+    # define the parser class; NB that tokens depends on
     # the NenaLexer definitions a run-time;
-    # a shift-reduce debug file can be written out to the 
+    # a shift-reduce debug file can be written out to the
     # parse_debug if configured (see commented out below)
-    # For more info on the syntax used for these patterns, 
+    # For more info on the syntax used for these patterns,
     # see the Yacc docs linked to at the beginning of this file
     class NenaParser(Parser):
-        
+
         def __init__(self):
             super().__init__()
-        
+
         # comment out to output debug file
         #debugfile = 'debug_parser.out'
         tokens = NenaLexer.tokens
-        
+
         def error(self, t):
             """Raise error when pattern is unrecognized."""
             raise Exception(
                 f'unexpected {t.type} ({repr(t.value)}) '
                 f'at index {t.index}'
-            ) 
+            )
 
         def make_word(self, letters, beginnings=[], endings=[]):
             """Build word data."""
@@ -322,44 +323,44 @@ def NenaLexerParser(configdict):
             # word_data['parsings'] = parse_word(word_string, self.dialect)
 
             return word_data
-            
+
         @_('attributes NEWLINES text_block')
         def nena(self, p):
             return [p.attributes, p.text_block]
-        
+
         @_('attributes NEWLINE ATTRIBUTE')
         def attributes(self, p):
             p.attributes.update(p.ATTRIBUTE)
             return p.attributes
-        
+
         @_('NEWLINE ATTRIBUTE', 'ATTRIBUTE')
         def attributes(self, p):
             return p.ATTRIBUTE
-        
+
         @_('text_block NEWLINES paragraph')
         def text_block(self, p):
             return p.text_block + [p.paragraph]
-        
+
         @_('paragraph')
         def text_block(self, p):
             return [p.paragraph]
-        
+
         @_('paragraph element')
         def paragraph(self, p):
             return p.paragraph + [p.element]
-        
+
         @_('element')
         def paragraph(self, p):
             return [p.element]
-        
+
         @_('word',
            'SPAN_TAG')
         def element(self, p):
             return p[0]
-        
+
         # words are recognized through a number of begin/end
         # punctuator combinations with a string of letters
-        @_('beginnings letters endings', 
+        @_('beginnings letters endings',
            'letters endings',
            'letters NEWLINE',
            'letters NEWLINE endings',
@@ -376,35 +377,35 @@ def NenaLexerParser(configdict):
            'LANG_START beginnings')
         def beginnings(self, p):
             return [p[0]] + p.beginnings
-        
+
         @_('PUNCT_BEGIN',
            'LANG_START')
         def beginnings(self, p):
             return [p[0]]
-        
+
         @_('endings NEWLINE')
         def endings(self, p):
             if p.endings[-1] != ' ':
                 new_end = ' '
                 p.endings.append(new_end)
             return p.endings
-        
+
         @_('endings PUNCT_END',
            'endings LANG_END',)
         def endings(self, p):
             return p.endings + [p[1]]
-        
+
         @_('PUNCT_END',
            'LANG_END')
         def endings(self, p):
             return [p[0]]
-            
-        @_('LETTER letters', 
+
+        @_('LETTER letters',
            'FOREIGN_LETTER letters')
         def letters(self, p):
             return [p[0]] + p[1]
-        
-        @_('LETTER', 
+
+        @_('LETTER',
            'FOREIGN_LETTER')
         def letters(self, p):
             return [p[0]]

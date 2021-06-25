@@ -14,19 +14,20 @@ class DocsBuilder:
 
         self.outdir = Path(outdir)
 
+        base_dir = str(Path(__file__).parent.parent) + "/"
         # read in the template file for the docs
         template_file = configdata['doc_template']
-        with open(template_file, 'r') as doc_template:
+        with open(base_dir + template_file, 'r') as doc_template:
             self.doc = doc_template.read()
 
         # read in the metadata for the corpus
         meta_file = configdata['metadata']
-        with open(meta_file, 'r') as infile:
+        with open(base_dir + meta_file, 'r') as infile:
             self.metadata = json.load(infile)
 
         # read in the metadata for tf
         tf_config = configdata['tf_config']
-        with open(tf_config, 'r') as infile:
+        with open(base_dir + tf_config, 'r') as infile:
             self.tf_config = json.load(infile)
 
     def maketable(self, tabledata, headers=('','')):
@@ -39,7 +40,7 @@ class DocsBuilder:
         TF = Fabric(locations=str(tf_dir))
         api = TF.loadAll()
         self.F, self.L, self.Fs = api.F, api.L, api.Fs
-        self.C = api.C 
+        self.C = api.C
 
     def export_doc(self, string, name):
         """Write the documentation doc to disk."""
@@ -63,13 +64,13 @@ class DocsBuilder:
         }
 
         for otype_data in self.C.levels.data:
-            
+
             otype = otype_data[0]
             otype_meta = self.metadata['corpus_objects'][otype]
             count = len(list(self.F.otype.s(otype)))
-            
+
             attested_features = set()
-            
+
             for feat, fdata in filter_features.items():
                 feat_data = self.Fs(feat)
                 freqlist = list(feat_data.freqList(nodeTypes=otype))
@@ -79,39 +80,39 @@ class DocsBuilder:
                 # skip if otype is never used with a given feature
                 if not freqlist:
                     continue
-                
+
                 feature_otype_counts[otype][feat] += feature_total
                 attested_features.add(feat)
-            
+
             att_features = ', '.join(f'[{f}](#{f})' for f in attested_features)
             node_data.append((otype, otype_meta, count, att_features))
 
         self.doc += '\n\n'
         self.doc += self.maketable(node_data, ('node type', 'description', 'frequency', 'features'))
-            
+
         # build tables for features
         self.doc += '\n\n'
         self.doc += '# Features\n\n'
         for feat, fdata in filter_features.items():
-            
+
             # add feature section to the document
             self.doc += f'## {feat}'
             self.doc += '\n\n'
             self.doc += fdata['about']
             self.doc += '\n\n'
-                
+
             freqlist = list(self.Fs(feat).freqList())
             feature_values = [fl[0] for fl in freqlist]
-            
+
             otype_freqs = []
             for otype in feature_otype_counts:
                 if feat in feature_otype_counts[otype]:
                     otype_freqs.append((otype, feature_otype_counts[otype][feat]))
-            
+
             self.doc += '**Node Counts**\n'
             self.doc += self.maketable(otype_freqs, ('node type', 'frequency'))
             self.doc += '\n\n'
-            
+
             # add data about the feature
             if fdata['value'] == 'categorical':
                 self.doc += '**Values**'
@@ -141,9 +142,9 @@ class DocsBuilder:
                 self.doc += '\n'
                 self.doc += '```' + '\n' + '\n'.join(str(v) for v in feature_values[:5]) + '\n' + '```'
                 self.doc += '\n\n'
-                
+
             self.doc += '[back to node types](#Node-Types)\n'
-            
-            self.doc += '<hr>\n\n' 
+
+            self.doc += '<hr>\n\n'
 
             self.export_doc(self.doc, 'documentation.md')

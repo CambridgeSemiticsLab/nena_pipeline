@@ -124,7 +124,7 @@ class CorpusPipeline:
             except Exception as e:
                 print(f'\t\tfail')
                 traceback = self.get_traceback(e)
-                errlog.append(f'corpus_id {corpus_id}: {traceback}')
+                errlog.append(f'corpus_id {corpus_id}: {e}')
                 continue
 
             metadata, text = parsed
@@ -185,11 +185,12 @@ class CorpusPipeline:
         print()
         print('Building search tool...')
         search_dir = Path(outdir).joinpath('search_tool')
+        search_configs_path = str(Path(__file__).parent.parent / self.configs['search_configs'])
         tf_dir = Path(outdir).joinpath('tf')
         makeSearchClients(
             'nena',
             str(search_dir),
-            self.configs['search_configs'],
+            search_configs_path,
             dataDir=str(tf_dir)
         )
         print('\tdone!')
